@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(0, 157, 255);
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+            margin: 20px;
+        }
+
+        h3 {
+            display: inline;
+        }
+
+        .btn {
+
+            background-color: green;
+            color: white;
+            margin: 20px 0px;
+            padding: 10px;
+            border-radius: 5px;
+            width: fit-content;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+        function copyText() {
+            var copyInput = document.getElementById("short_url");
+            var copyText = copyInput.textContent || copyInput.innerText;
+
+            if (copyText) {
+                var tempInput = document.createElement("textarea");
+                tempInput.value = copyText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                alert("Copied to clipboard!");
+            } else {
+                alert("No text to copy!");
+            }
+
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL shortener</h1>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

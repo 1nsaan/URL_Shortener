@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Short URL{% endblock %}
+
+{% block content %}
+<div class="container">
+    Shortened URL: <h3 id="short_url" name="url">http://127.0.0.1:5000/{{ short_url_display }}</h3>
+    <a  target="_blank" href="http://127.0.0.1:5000/{{ short_url_display }}">Open</a>
+    <button class="btn" onclick="copyText()">Copy</button>
+</div>
+
+<a href="http://127.0.0.1:5000/">Home</a>
+{% endblock %}
